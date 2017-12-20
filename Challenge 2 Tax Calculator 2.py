@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#! usr/bin/env python3
 
 import sys
 
@@ -14,8 +14,13 @@ for arg in rawList:
         except: 
                 print("Parameter Error")
 
-        taxPart = salaryAmount * (1 - 0.165) - 3500
+        rawTaxPart = salaryAmount * (1 - 0.165) - 3500
 
+        if rawTaxPart > 0:
+        	taxPart = rawTaxPart
+        else:
+                taxPart = 0
+ 	
         if taxPart <= 1500: 
                 tax = taxPart * 0.03
         elif 1500 < taxPart <= 4500:
@@ -31,8 +36,9 @@ for arg in rawList:
         else:
                 tax = taxPart * 0.45 - 13505
              
-        taxPrint = '{:.2f}'.format(tax)
-        salaryDict[idNumber] = taxPrint
-  
+        salary = salaryAmount * (1 - 0.165) - tax
+        salaryPrint = '{:.2f}'.format(salary)
+        salaryDict[idNumber] = salaryPrint
+
 for key, value in salaryDict.items():
         print(str(key) + ':' + str(value))
