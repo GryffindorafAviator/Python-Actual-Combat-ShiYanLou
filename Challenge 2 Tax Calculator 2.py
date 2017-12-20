@@ -31,8 +31,8 @@ for arg in rawList:
         else:
                 tax = taxPart * 0.45 - 13505
              
-        taxPrint = '{.2f}'.format(tax)
+        taxPrint = '{:.2f}'.format(tax)
         salaryDict[idNumber] = taxPrint
   
 for key, value in salaryDict.items():
-        print(key, ':', value)
+        print(key + ':' + value)
