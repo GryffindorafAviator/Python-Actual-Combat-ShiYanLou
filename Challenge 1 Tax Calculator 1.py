@@ -12,6 +12,11 @@ try:
 except:
         print("Parameter Error")
 
+rawTaxPart = salaryAmount * (1 - 0.165) - 3500
+if rawTaxPart > 0:
+        taxPart = rawTaxPart
+else:   
+        taxPart = 0
 taxPart = salary - 3500
 
 if taxPart <= 1500:
@@ -28,7 +33,10 @@ elif 55000 < taxPart <= 80000:
         tax = taxPart * 0.35 - 5505
 else:
         tax = taxPart * 0.45 - 13505
-        
-taxPrint = format(tax, ".2f")
 
-print(taxPrint)
+salary = salaryAmount*(1 - 0.165) - tax
+taxPrint = '{:.2f}'.format(salary)
+salaryDict[idNumber] = salaryPrint
+
+for key, value in salaryDict.items():
+        print(str(key) + ':' + str(value))
