@@ -35,4 +35,4 @@ for arg in rawList:
         salaryDict[idNumber] = taxPrint
   
 for key, value in salaryDict.items():
-        print(key + ':' + value)
+        print(str(key) + ':' + str(value))
